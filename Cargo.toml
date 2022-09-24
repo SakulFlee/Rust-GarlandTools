@@ -3,6 +3,9 @@ name = "garlandtools"
 version = "0.1.0"
 edition = "2021"
 authors = ["Sakul Flee <me@sakul-flee.de>"]
+description = "A library for interacting with the GarlandTools API"
+license = "MIT"
+repository = "https://github.com/Sakul6499/Rust-GarlandTools"
 
 [dependencies]
 serde = "1.0"
