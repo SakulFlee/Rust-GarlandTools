@@ -1,4 +1,4 @@
-#[test]
-fn test_fn() {
-    assert_eq!(crate::test_fn(), 42);
-}
+mod test_globals;
+mod test_languages;
+mod test_garland_tools;
+mod test_job;
