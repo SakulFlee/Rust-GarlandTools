@@ -96,7 +96,7 @@ pub struct GarlandTools {
 
 impl GarlandTools {
     pub fn new(language: Language) -> GarlandTools {
-        GarlandTools { language: language }
+        GarlandTools { language }
     }
 
     // Achievements
