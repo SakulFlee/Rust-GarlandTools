@@ -1,6 +1,12 @@
+// Externals
+#[macro_use]
+extern crate lazy_static;
+
+// Tests
 #[cfg(test)]
 mod tests;
 
-pub fn test_fn() -> i32 {
-    return 42;
-}
+// Modules
+pub mod globals;
+
+// Reexports
