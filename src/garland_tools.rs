@@ -7,7 +7,7 @@ pub type ResultBytes = std::result::Result<bytes::Bytes, std::string::String>;
 
 macro_rules! endpoint_all {
     ($name:ident, $endpoint:expr) => {
-        pub async fn $name(self) -> ResultJSON {
+        pub async fn $name(&self) -> ResultJSON {
             match reqwest::get(
                 (*$endpoint).replace(GARLAND_LANGUAGE_TOKEN, &self.language.get_language()),
             )
@@ -28,7 +28,7 @@ macro_rules! endpoint_all {
 
 macro_rules! endpoint_with_one_id {
     ($name:ident, $endpoint:expr) => {
-        pub async fn $name(self, id: u64) -> ResultJSON {
+        pub async fn $name(&self, id: u64) -> ResultJSON {
             match reqwest::get(
                 format!("{}{id}.json", *$endpoint)
                     .replace(GARLAND_LANGUAGE_TOKEN, &self.language.get_language()),
@@ -50,7 +50,7 @@ macro_rules! endpoint_with_one_id {
 
 macro_rules! endpoint_with_two_ids {
     ($name:ident, $endpoint:expr, $id0_type:ident, $id1_type:ident) => {
-        pub async fn $name(self, id0: $id0_type, id1: $id1_type) -> ResultBytes {
+        pub async fn $name(&self, id0: $id0_type, id1: $id1_type) -> ResultBytes {
             match reqwest::get(
                 format!("{}{id0}/{id1}.png", *$endpoint)
                     .replace(GARLAND_LANGUAGE_TOKEN, &self.language.get_language()),
@@ -69,7 +69,7 @@ macro_rules! endpoint_with_two_ids {
 
 macro_rules! endpoint_with_job {
     ($name:ident, $endpoint:expr) => {
-        pub async fn $name(self, job: Job) -> ResultJSON {
+        pub async fn $name(&self, job: Job) -> ResultJSON {
             match reqwest::get(
                 format!("{}{}.json", *$endpoint, job.get_short_name())
                     .replace(GARLAND_LANGUAGE_TOKEN, &self.language.get_language()),
@@ -155,7 +155,7 @@ impl GarlandTools {
     endpoint_with_two_ids!(icon, GARLAND_TOOLS_ICON_ENDPOINT, String, u64);
 
     // Search
-    pub async fn search(self, query: String) -> ResultJSON {
+    pub async fn search(&self, query: String) -> ResultJSON {
         match reqwest::get(format!(
             "{}?text={}&lang={}",
             *GARLAND_TOOLS_SEARCH_ENDPOINT,
