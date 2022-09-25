@@ -41,7 +41,7 @@ pub enum Job {
 }
 
 impl Job {
-    pub fn get_short_name(self) -> String {
+    pub fn get_short_name(&self) -> String {
         match self {
             Job::Paladin => "PLD".to_string(),
             Job::Warrior => "WAR".to_string(),
