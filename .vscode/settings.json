@@ -1,8 +1,11 @@
 {
     "cSpell.words": [
         "Astrologian",
+        "garlandtools",
         "leves",
         "npcs",
-        "reqwest"
+        "println",
+        "reqwest",
+        "serde"
     ]
 }
